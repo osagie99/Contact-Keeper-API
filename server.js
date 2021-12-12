@@ -1,8 +1,11 @@
 // Bring in express
 const express = require ('express');
 const app = express();
+const  connectDB = require ('./config/db');
 // specify port to listen on 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 6000;
+app.use(express.json({extended: false}))
+connectDB();
 
 app.get('/', (req, res)=> res.json({msg: 'Welcome to Contact Keeper Api'}));
 //  Define our routes
